@@ -1,0 +1,16 @@
+<h1>Marcar Asistencia</h1>
+
+<%= form_with model: @asistencia, url: '/guardar_asistencia', method: :patch do |form| %>
+  <div>
+    <%= form.label :id, style: "display: block" %>
+    <%= form.text_field :id %>
+    <br>
+    <%= form.label :username, style: "display: block" %>
+    <%= form.text_field :username %>
+    <br>
+    <%= form.label :entry, "Entrada o salida:" %>
+    <%= form.select :entry, [["Entrada", true], ["Salida", false]] %>
+    <%= form.submit 'Registrar' %>
+  </div>
+<% end %>
+

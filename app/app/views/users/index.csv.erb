@@ -1,0 +1,8 @@
+<%= fields = [:username, :entry, :entrada, :salida].join(";") %>
+<% @users.each do |users| %>
+<% username = users.username %>
+<% entry = users.entry %>
+<% entrada = users.created_at %>
+<% salida = DateTime.now %>
+<%= [username, entry, entrada, salida].join(";") %> 
+<% end %>
