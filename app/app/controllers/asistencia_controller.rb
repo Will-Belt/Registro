@@ -1,6 +1,7 @@
 class AsistenciaController < UsersController
   def update
-    if @asistencia.update(asistencia_params)
+    set_user
+    if @user.update(user_params)
       redirect_to asistencia_path, notice: "Asistencia guardada correctamente"
     else 
       render :edit, status: :unprocessable_entity
@@ -8,11 +9,11 @@ class AsistenciaController < UsersController
   end
 
   private
-    def asistencia
-      @asistencia = User.all
+    def set_user
+      @user = User.find(params[:id])
     end
 
-    def asistencia_params
-      params.require(:asistencia).permit(:id, :username, :entry)
+    def user_params
+      params.permit(:id, :username, :entry)
     end
 end
